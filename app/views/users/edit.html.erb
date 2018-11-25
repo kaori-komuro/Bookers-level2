@@ -1,0 +1,37 @@
+<%= render 'books/header', books: @books %>
+
+<div class='body'>
+  <div class='container'>
+<br>
+        <p id="notice"></p>
+
+      	<h2>User info</h2>
+
+  <div class="field">
+    <label for="user_name">Name</label>
+    <%= form_for(@user) do |f| %>
+   	<%= f.text_field :name, autofocus: true, id:"inputEmail", placeholder:"name" %>
+    </div>
+
+  <div class="field">
+    <label for="user_name">Image</label>
+    <%= f.attachment_field :profile_image, placeholder: "image" %>
+   </div>
+
+  <div class="field">
+    <label for="user_introduction">Introduction</label>
+    <%= f.text_area :introduction %>
+<br>
+    <%= f.submit "Update User" %>
+<% end %>
+  </div>
+
+</div>
+    <footer>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-xs-3 col-xs-offset-9'>
+        <p>CopyRight Infratop.inc</p>
+      </div>
+    </div>
+  </div>

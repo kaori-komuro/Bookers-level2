@@ -1,41 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <nav class='nav navbar-nav navbar-left' >
-      <span class="title">Bookers</span>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to " Home", user_path(current_user.id), class: 'glyphicon glyphicon-home home' %>
-      </li>
-      <li>
-        <%= link_to " Users", "#", class: 'glyphicon glyphicon-user users' %>
-      </li>
-      <li>
-        <%= link_to " Books", "#", class: 'glyphicon glyphicon-book books' %>
-      </li>
-      <li>
-        <%= link_to " logout", destroy_user_session_path, method: :delete, class: 'glyphicon glyphicon-log-out logout' %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to " Home", "/books/top", class: 'glyphicon glyphicon-home home' %>
-      </li>
-      <li>
-        <%= link_to " About", '/books/about', class: 'glyphicon glyphicon-link about' %>
-      </li>
-      <li>
-        <%= link_to " sign up", "/users/sign_up", class: 'glyphicon glyphicon-edit sign_up' %>
-      </li>
-      <li>
-        <%= link_to " login", "/users/sign_in", class: 'glyphicon glyphicon-log-in sign_in' %>
-      </li>
-    <% end %>
-    </ul>
-    </nav>
-  </div>
-</header>
+<%= render 'books/header', books: @books %>
 
     <div class='body'>
       <div class='container'>

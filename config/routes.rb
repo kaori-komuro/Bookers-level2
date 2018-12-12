@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'books/top'
 
+  get 'users/index' => 'users#index'
+
   resources :books, only: [:new, :create, :index, :show, :destroy]
 
   resources :users, only: [:new, :create, :index, :show, :destroy, :edit, :update]

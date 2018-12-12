@@ -2,11 +2,10 @@
 
 <div class='body'>
   <div class='container'>
-<br>
+    <br>
         <p id="notice"></p>
 
       	<h2>User info</h2>
-
   <div class="field">
     <label for="user_name">Name</label>
     <%= form_for(@user) do |f| %>
@@ -15,12 +14,12 @@
 
   <div class="field">
     <label for="user_name">Image</label>
-    <%= f.attachment_field :profile_image, placeholder: "image" %>
+    <%= f.attachment_field :profile_image, autofocus: true, id:"inputEmail", placeholder: "image" %>
    </div>
 
   <div class="field">
     <label for="user_introduction">Introduction</label>
-    <%= f.text_area :introduction %>
+    <%= f.text_area :introduction, autofocus: true, id:"inputEmail" %>
 <br>
     <%= f.submit "Update User" %>
 <% end %>

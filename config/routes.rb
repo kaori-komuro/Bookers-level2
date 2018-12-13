@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get 'users/index' => 'users#index'
 
-  resources :books, only: [:new, :create, :index, :show, :destroy]
+  patch '/books/:id' => 'books#update', as: 'update_book'
+
+  resources :books, only: [:new, :create, :index, :show, :destroy, :edit]
 
   resources :users, only: [:new, :create, :index, :show, :destroy, :edit, :update]
 

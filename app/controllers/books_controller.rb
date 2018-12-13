@@ -16,6 +16,7 @@ before_action :authenticate_user!,
     @books = Book.all
     @book = Book.new
     @user = User.all
+    @users = User.find(params[:id])
   end
 
   def new

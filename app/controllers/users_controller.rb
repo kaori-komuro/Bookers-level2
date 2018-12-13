@@ -4,6 +4,8 @@ before_action :authenticate_user!
   def show
     @user = User.all
     @users = User.find(params[:id])
+    @books = @users.books.page(params[:page])
+    @book = Book.new
   end
 
   def index

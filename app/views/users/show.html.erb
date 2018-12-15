@@ -11,28 +11,28 @@
 <div class="profile-container">
   <table class='table'>
     <tr>
-       <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "sample-author1.jpg" %>
+       <%= attachment_image_tag @users, :profile_image, :fill, 100, 100, fallback: "sample-author1.jpg" %>
     </tr>
     <tr>
         <th>name</th>
         <th>
-          <%= current_user.name %>
+          <%= @users.name %>
         </th>
       <tr>
         <th>introduction</th>
         <th>
-          <%= current_user.introduction %>
+          <%= @users.introduction %>
         </th>
       </tr>
 </table>
 
 <div class='row'>
-      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1282" %>
+      <%= link_to "", "/users/index", class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1282" %>
 </div>
 </div>
 
 <h3>New book</h3>
-<!-- form_for部分 -->
+
 <%= form_for(@book) do |f| %>
 
 <div class="field row">
@@ -51,7 +51,6 @@
 </div>
 
 </div>
-
 
   <div class='col-xs-9'>
         <p id="notice"></p>

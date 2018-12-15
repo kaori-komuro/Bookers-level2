@@ -1,31 +1,6 @@
 <%= render 'books/header', books: @books %>
-<div class='body'>
-  <div class='container'>
-    <div class="col-lg-3">
-<br>
-        <p id="notice"></p>
 
-
-<h3>New book</h3>
-<!-- form_for部分 -->
-<%= form_for(@book) do |f| %>
-
-<div class="field row">
-<label for="user_name">Title</label>
-<%= f.text_field :title, class: "col-xs-12 book_body" %>
-</div>
-
-<div class="field row">
-<label for="user_name">Opinion</label>
-<%= f.text_area :body, class: "col-xs-12 book_body" %>
-</div>
-
-<div class="field row">
-<%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
-<% end %>
-</div>
-
-</div>
+<%= render 'books/profile', books: @books %>
 
 <div class="col-lg-9">
   <br>

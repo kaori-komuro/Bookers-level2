@@ -1,0 +1,53 @@
+
+<div class='body'>
+  <div class='container'>
+    <div class="col-lg-3">
+      <br>
+        <p id="notice"></p>
+
+<h3>User info</h3>
+
+<div class="profile-container">
+  <table class='table'>
+    <tr>
+       <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "sample-author1.jpg" %>
+    </tr>
+    <tr>
+        <th>name</th>
+        <th>
+          <%= current_user.name %>
+        </th>
+      <tr>
+        <th>introduction</th>
+        <th>
+          <%= current_user.introduction %>
+        </th>
+      </tr>
+</table>
+
+<div class='row'>
+      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1282" %>
+</div>
+
+</div>
+
+<h3>New book</h3>
+
+<%= form_for(@book) do |f| %>
+
+<div class="field row">
+<label for="user_name">Title</label>
+<%= f.text_field :title, class: "col-xs-12 book_body" %>
+</div>
+
+<div class="field row">
+<label for="user_name">Opinion</label>
+<%= f.text_area :body, class: "col-xs-12 book_body" %>
+</div>
+
+<div class="field row">
+<%= f.submit 'Create Book', class: "btn btn-primary col-xs-12" %>
+<% end %>
+</div>
+
+</div>

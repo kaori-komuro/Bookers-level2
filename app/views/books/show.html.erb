@@ -3,8 +3,6 @@
 <%= render 'books/profile', books: @books %>
 
 <div class="col-lg-9">
-  <br>
-  <p id="notice"></p>
 
 <h2>Book detail</h2>
 
@@ -15,8 +13,8 @@
     	<td><%= @book_params.body %></td>
       <% if @book_params.user == current_user %>
       <td>
-    <%= link_to "Edit", edit_book_path(@book_params), class: 'btn-sm btn-success' %></td>
-      <td><%= link_to "Destroy", books_path(@books), method: :delete, class: 'btn-sm btn-danger' %></td>
+    <%= link_to "Edit", edit_book_path(@book_params), class: 'btn-sm btn-success edit_book_#{book.id}' %></td>
+      <td><%= link_to "Destroy", book_path(@book_params), method: :delete, class: 'btn-sm btn-danger destroy_book_#{book.id}' %></td>
       <% end %>
     </tr>
     </table>
@@ -24,7 +22,6 @@
 </div>
 </div>
 </div>
-
 
     <footer>
   <div class='container'>

@@ -1,13 +1,30 @@
 
-<div class='body'>
-  <div class='container'>
-    <div class="col-lg-3">
-      <br>
-        <p id="notice"></p>
+    <div class='body'>
+      <div class='container'>
 
-<h3>User info</h3>
+  <div id="error_explanation">
+<% if @book.errors.any? %>
+    <ul>
+          <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+  </div>
+
+      <p id="notice">
+        <% if flash[:notice] %>
+          <%= flash[:notice] %>
+        <% end %>
+      </p>
+
+        <div class='row'>
+    <div class="col-lg-3">
+<h2>User info</h2>
 
 <div class="profile-container">
+
   <table class='table'>
     <tr>
        <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "sample-author1.jpg" %>
@@ -15,7 +32,7 @@
     <tr>
         <th>name</th>
         <th>
-          <%= current_user.name %>
+          <%= current_user.username %>
         </th>
       <tr>
         <th>introduction</th>
@@ -26,7 +43,7 @@
 </table>
 
 <div class='row'>
-      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1282" %>
+      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %>
 </div>
 
 </div>
@@ -37,7 +54,7 @@
 
 <div class="field row">
 <label for="user_name">Title</label>
-<%= f.text_field :title, class: "col-xs-12 book_body" %>
+<%= f.text_field :title, class: "col-xs-12 book_title" %>
 </div>
 
 <div class="field row">

@@ -26,7 +26,7 @@ before_action :authenticate_user!
         flash[:notice] = "Book was successfully created."
         redirect_to book_path(@book.id)
       else
-        render("/books/new")
+        redirect_to books_path
       end
   end
 
@@ -36,13 +36,18 @@ before_action :authenticate_user!
 
   def destroy
       @book = Book.find(params[:id])
-      redirect_to new_book_path
+      @book.destroy
+      redirect_to books_path
   end
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if
+      @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
 private

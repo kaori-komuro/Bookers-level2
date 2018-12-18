@@ -1,12 +1,14 @@
 <%= render 'books/header', books: @books %>
 
-<div class='body'>
-  <div class='container'>
-    <div class="col-lg-3">
-      <br>
-        <p id="notice"></p>
+    <div class='body'>
+      <div class='container'>
 
-<h3>User info</h3>
+        <p id="notice"><% if flash[:notice] %>
+       <%= flash[:notice] %>
+<% end %></p>
+        <div class='row'>
+    <div class="col-lg-3">
+<h2>User info</h2>
 
 <div class="profile-container">
   <table class='table'>
@@ -27,8 +29,13 @@
 </table>
 
 <div class='row'>
-      <%= link_to "", "/users/index", class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_1282" %>
+    <% if @users == current_user %>
+      <%= link_to "", edit_user_path(current_user), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %>
+    <% else %>
+      <%= link_to "", user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %>
+    <% end %>
 </div>
+
 </div>
 
 <h3>New book</h3>
@@ -53,7 +60,6 @@
 </div>
 
   <div class='col-xs-9'>
-        <p id="notice"></p>
     <h2>Books</h2>
 
     <table class='table table-hover table-inverse'>

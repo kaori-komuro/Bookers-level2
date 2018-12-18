@@ -16,13 +16,12 @@ before_action :authenticate_user!,
     @books = Book.all
     @book = Book.new
     @user = User.all
-    @users = User.find(params[:id])
+    @users = @book_params.user
   end
 
   def new
     @books = Book.all
     @book = Book.new
-    @user = User.find(params[:id])
   end
 
   def create
@@ -33,7 +32,9 @@ before_action :authenticate_user!,
         flash[:notice] = "Book was successfully created."
         redirect_to book_path(@book.id)
       else
-        render("/books/new")
+        @books = Book.all
+        @user = User.all
+        render :index
       end
   end
 
@@ -44,7 +45,7 @@ before_action :authenticate_user!,
   def destroy
       @book = Book.find(params[:id])
       @book.destroy
-      redirect_to new_book_path
+      redirect_to books_path
   end
 
   def update
@@ -57,4 +58,5 @@ before_action :authenticate_user!,
     def book_params
       params.require(:book).permit(:title, :body)
     end
-end
+
+  end

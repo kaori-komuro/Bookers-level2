@@ -18,7 +18,7 @@
   <div class="field">
     <label for="user_name">Name</label>
     <%= form_for(@user) do |f| %>
-   	<%= f.text_field :name, autofocus: true, id:"inputEmail", placeholder:"name", class: 'name' %>
+   	<%= f.text_field :username, autofocus: true, id:"inputEmail", placeholder:"username", class: 'name' %>
     </div>
 
   <div class="field">
@@ -29,11 +29,11 @@
   <div class="field">
     <label for="user_introduction">Introduction</label>
     <%= f.text_area :introduction, autofocus: true, id:"inputEmail", class: 'introduction' %>
-<br>
+  </div>
 
+<br>
     <%= f.submit "Update User" %>
 <% end %>
-  </div>
 
 </div>
     <footer>

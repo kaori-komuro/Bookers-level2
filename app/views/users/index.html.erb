@@ -3,7 +3,7 @@
 <%= render 'books/profile', books: @books %>
 
 <div class="col-lg-9">
-<h3>Users</h3>
+<h2>Users</h2>
 <table class='table table-hover table-inverse'>
   <thead>
     <tr>
@@ -19,7 +19,7 @@
     <%= attachment_image_tag user, :profile_image, size: "40x40", format: 'jpeg', fallback: "sample-author1.jpg" %>
   </td>
   <td>
-<%= user.name %>
+<%= user.username %>
   </td>
   <td>
 <%= link_to "Show", user_path(user.id), class: 'user_#{user.id}' %>

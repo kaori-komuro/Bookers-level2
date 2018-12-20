@@ -2,9 +2,9 @@
 
 <div class='body'>
   <div class='container'>
-      	<h2>User info</h2>
-
-  <div id="error_explanation">
+    <p id="notice"></p>
+        <h3>User info</h3>
+    <div id="error_explanation">
 <% if @user.errors.any? %>
     <ul>
           <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
@@ -15,23 +15,15 @@
 <% end %>
   </div>
 
-  <div class="field">
-    <%= form_for(@user) do |f| %>
+<%= form_for(@user) do |f| %>
     <label for="user_name">Name</label>
-   	<%= f.text_field :username, autofocus: true, id:"inputEmail", placeholder: "username", class: 'name' %>
-    </div>
-
-  <div class="field">
+    <%= f.text_field :username, autofocus: true, id:"inputEmail", placeholder:"username", class: 'name' %>
     <label for="user_name">Image</label>
     <%= f.attachment_field :profile_image, autofocus: true, id:"inputEmail", placeholder: "image", class: 'user_image' %>
-   </div>
-
-  <div class="field">
-    <label for="user_introduction">Introduction</label>
+    <label for="user_name">introduction</label>
     <%= f.text_area :introduction, autofocus: true, id:"inputEmail", class: 'introduction' %>
-  </div>
-
-<%= f.submit "Update User" %>
+    <br>
+    <%= f.submit 'User Update' %>
 <% end %>
 
 </div>

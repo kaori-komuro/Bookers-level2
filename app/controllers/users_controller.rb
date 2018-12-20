@@ -43,6 +43,7 @@ before_action :authenticate_user!
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "introduction was successfully edited."
       redirect_to user_path(@user.id)
     else
       render :edit

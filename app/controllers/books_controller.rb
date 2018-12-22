@@ -40,6 +40,9 @@ before_action :authenticate_user!,
 
   def edit
       @book = Book.find(params[:id])
+      if @book.user_id != current_user.id
+      redirect_to books_path
+      end
   end
 
   def destroy

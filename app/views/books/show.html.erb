@@ -8,13 +8,16 @@
 
 	<table class='table'>
 		<tr>
-    	<td><%= attachment_image_tag current_user, :profile_image, size: "100x100", format: 'jpeg', fallback: "sample-author1.jpg" %><br><%= link_to "#{current_user.name}", "#{user_path(current_user.id)}" %></td>
+    	<td><%= attachment_image_tag @users, :profile_image, size: "40x40", format: 'jpeg', fallback: "sample-author1.jpg" %>
+        <br>
+        <%= link_to "#{@users.username}", user_path(@users.id), class: "user_#{@users.id}" %></td>
     	<td><%= @book_params.title %></td>
     	<td><%= @book_params.body %></td>
       <% if @book_params.user == current_user %>
       <td>
-    <%= link_to "Edit", edit_book_path(@book_params), class: 'btn-sm btn-success edit_book_#{book.id}' %></td>
-      <td><%= link_to "Destroy", book_path(@book_params), method: :delete, "data-confirm" => "Are you sure?", class: 'btn-sm btn-danger destroy_book_#{book.id}' %></td>
+        <%= link_to "Edit", edit_book_path(@book_params), class: "btn-sm btn-success edit_book_#{@book_params.id}" %></td>
+      <td>
+        <%= link_to "Destroy", book_path(@book_params), method: :delete, "data-confirm" => "Are you sure?", class: "btn-sm btn-danger destroy_book_#{@book_params.id}" %></td>
       <% end %>
     </tr>
     </table>
